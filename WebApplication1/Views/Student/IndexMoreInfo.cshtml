@@ -1,0 +1,50 @@
+﻿@model WebApplication1.ViewModels.StudentCourseViewModel
+
+@{
+    ViewBag.Title = "IndexMoreInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IndexMoreInfo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Students.FirstOrDefault().StudentName)</th>
+        <th>@Html.DisplayNameFor(model => model.Students.FirstOrDefault().Age)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Students)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.StudentName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Age)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }) |
+            @Html.ActionLink("More info", "IndexMoreInfo", new { id = item.StudentId })
+        </td>
+    </tr>
+}
+</table>
+
+@if (Model.Courses != null)
+{
+    <h2>Courses by selected student</h2>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Courses.FirstOrDefault().CoursesName)</th>
+        </tr>
+        @foreach (var item in Model.Courses)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CoursesName)</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,46 @@
+﻿@model WebApplication1.ViewModels.SkateboardOnderdeelViewModel
+
+@{
+    ViewBag.Title = "indexMoreInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IndexMoreInfo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Skateboards.FirstOrDefault().SkateboardBrand)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Skateboards)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.SkateboardBrand)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SkateboardId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SkateboardId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SkateboardId }) |
+                @Html.ActionLink("More info", "IndexMoreInfo", new { id = item.SkateboardId })
+            </td>
+        </tr>
+    }
+</table>
+
+@if (Model.Onderdelen != null)
+{
+    <h2>Onderelen by selected skateboard</h2>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Onderdelen.FirstOrDefault().OnderdeelName)</th>
+        </tr>
+        @foreach (var item in Model.Onderdelen)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.OnderdeelName)</td>
+            </tr>
+        }
+    </table>
+}

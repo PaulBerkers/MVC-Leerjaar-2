@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.Onderdeel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Onderdeel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OnderdeelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnderdeelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnderdeelQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnderdeelQuantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OnderdeelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

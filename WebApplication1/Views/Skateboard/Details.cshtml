@@ -1,0 +1,42 @@
+﻿@model WebApplication1.Models.Skateboard
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Skateboard</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SkateboardBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkateboardBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkateboardWidth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkateboardWidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkateboardCurve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkateboardCurve)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SkateboardId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
